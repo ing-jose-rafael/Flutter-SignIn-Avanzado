@@ -10,7 +10,12 @@ class GoogleSignInService {
   static Future<GoogleSignInAccount> signInWithGoogle() async {
     try {
       final GoogleSignInAccount account = await _googleSignIn.signIn();
+      // aca ya tenemos el usuario por google
+
       print(account);
+      print('============= ID Token =============');
+      final googleKey = await account.authentication;
+      print(googleKey.idToken);
       // TODO: toca generar un token para autentificarse en el backend y evitar que alguien que conozca endpoint genere usuario
       return account;
     } catch (error) {
