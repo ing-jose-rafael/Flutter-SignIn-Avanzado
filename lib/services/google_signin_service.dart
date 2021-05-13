@@ -9,13 +9,18 @@ class GoogleSignInService {
   );
   static Future<GoogleSignInAccount> signInWithGoogle() async {
     try {
-      final GoogleSignInAccount acount = await _googleSignIn.signIn();
-      print(acount);
-      return acount;
+      final GoogleSignInAccount account = await _googleSignIn.signIn();
+      print(account);
+      // TODO: toca generar un token para autentificarse en el backend y evitar que alguien que conozca endpoint genere usuario
+      return account;
     } catch (error) {
       print('Error en Google SignIn');
       print(error);
       return null;
     }
+  }
+
+  static Future signOut() async {
+    await _googleSignIn.signOut();
   }
 }

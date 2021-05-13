@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.exit_to_app),
               onPressed: () {
-                //TODO: signout
+                GoogleSignInService.signOut();
               },
             )
           ],
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                     ],
                   ),
                   onPressed: () async {
-                    // await GoogleSignInService.signInWithGoogle();
+                    await GoogleSignInService.signInWithGoogle();
                   },
                 ),
               ],
